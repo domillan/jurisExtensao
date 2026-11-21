@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Busca de Jurisprudência</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Pesquisa de Jurisprudência</h1>
+      <p>Selecione o tribunal e informe os termos da busca</p>
+    </header>
+
+    <form id="search-form" novalidate>
+      <div class="field">
+        <label for="tribunal">Tribunal</label>
+        <div class="tribunal-grid" role="radiogroup" aria-label="Tribunal">
+          <label class="chip">
+            <input type="radio" name="tribunal" value="TJRS" checked />
+            <span>TJRS</span>
+          </label>
+          <label class="chip">
+            <input type="radio" name="tribunal" value="TRF4" />
+            <span>TRF4</span>
+          </label>
+          <label class="chip">
+            <input type="radio" name="tribunal" value="STJ" />
+            <span>STJ</span>
+          </label>
+          <label class="chip">
+            <input type="radio" name="tribunal" value="STF" />
+            <span>STF</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="termo">Assunto / Expressão de busca</label>
+        <input
+          type="text"
+          id="termo"
+          name="termo"
+          placeholder='Ex.: "dano moral" E negativação'
+          autocomplete="off"
+          required
+          autofocus
+        />
+        <small id="dica-portal" class="hint">
+          Portal Solr do TJRS (busca na ementa completa).
+        </small>
+      </div>
+
+      <p id="erro-msg" class="error" hidden></p>
+
+      <button type="submit" id="btn-buscar" class="btn-primary">
+        Pesquisar no Tribunal
+      </button>
+    </form>
+  </main>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
